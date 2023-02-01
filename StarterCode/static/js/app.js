@@ -81,25 +81,40 @@ function update(item){
 
         let meta1 = data.metadata;
         let metadata = meta1.filter(obj => obj.id == item);
-        let id1 = metadata[0].id;
-        let ethnicity = metadata[0].ethnicity;
-        let gender = metadata[0].gender;
-        let age = metadata[0].age;
-        let location = metadata[0].location;
-        let bbtype = metadata[0].bbtype;
-        let wfreq = metadata[0].wfreq;
-
+        let result = metadata[0];
+        let result2 = result.wfreq;
         
-        const alldata = {
-            "id": id1,
-            "ethinicity": ethnicity,
-            "gender": gender,
-            "age": age,
-            "location": location,
-            "bbtype": bbtype,
-            "wfreq": wfreq
+        let panel = d3.select("#sample-metadata");
+        panel.html("");
+        for (key in result){
+            panel.append("h6").text(`${key}: ${result[key]}`);
         };
-        d3.select("#sample-metdata").(alldata);
+        
+    //     let array1 = [];
+    //     for (i=0;i<meta1.length;i++){
+    //         let row3 = meta1[i];
+    //         let row33 = row3.wfreq;
+    //         array1.push(row33);
+
+    //     };
+    //     let min1 = Math.min(...array1);
+    //     let max1 = Math.max(...array1);
+    //     let label1 = [];
+    //     for (p = 0;p<max1;p++){
+    //         if(p<max1){
+    //         let part1 = `${p}-${p+1}`;
+    //         label1.push(part1)   
+    //         }
+    //     };
+        
+    //  let gauge = [{
+    //     domain: {x:[0,1],y:[0,1]}
+    //  }
+    //  ]
+        
+
+    //  let layout3 = {width: 600, height: 500, margin: {t:0,b:0}};
+    //  Plotly.newPlot('gauge',gauge,layout3);
     });
 
        
